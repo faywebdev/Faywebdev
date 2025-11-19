@@ -1,0 +1,486 @@
+/* ======= MINIMAL BLACK & WHITE HERO STYLE ======= */
+/* ===== RESET ساده ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* ===== منوی عمودی سمت راست ===== */
+.side-nav {
+  position: fixed;
+  top: 10%;
+  right: 100px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  z-index: 20;
+}
+
+.side-nav a {
+  writing-mode: horizontal-tb; /* اگه عمودی عمودی نخوای می‌تونیم افقی کنیم */
+  text-orientation: mixed;
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  color: #f5f5f5;
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.side-nav a:hover {
+  background: #ffffff;
+  color: #000;
+}
+
+.side-nav a.active {
+  background: #ffffff;
+  color: #000;
+}
+
+/* اگه نمی‌خوای متن‌ها عمودی باشن، این دو خط writing-mode / text-orientation رو حذف کن
+   و به جاش می‌تونی padding و width رو بیشتر کنی که شبیه دکمه بشه */
+
+/* ===== HERO ===== */
+.hero-contrast {
+  position: relative;
+  height: 100vh;
+  background-image: url("images/pic2.jpg"); /* همون بک‌گراندی که انتخاب کردی */
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 0 80px;
+}
+
+.hero-contrast .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+}
+
+.big-title {
+  font-size: 2.6rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.sub-text {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 28px;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #ffffff;
+  color: #000;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid #ffffff;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* عکس پروفایل مستطیلی */
+.hero-profile {
+  position: absolute;
+  right: 60px;
+  top: 55%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.hero-profile img {
+  width: 150px;
+  width: 200px;
+  height: 200;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.8);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.35);
+}
+
+/* بخش کوچک پایین هوم */
+.home-contact {
+  background: #111;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.home-contact a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .hero-contrast {
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .hero-profile {
+    position: static;
+    transform: none;
+    margin-top: 20px;
+  }
+
+  .side-nav {
+    right: 8px;
+  }
+}  /* این } مهمه، media تموم شد */
+
+/* ===== ABOUT PAGE – ساده و تمیز ===== */
+
+.about-hero {
+  position: relative;
+  height: 100vh;
+  background-image: url("images/pic3.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+  padding: 0 80px;
+}
+
+.about-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+.about-hero,
+.about-hero h1,
+.about-hero h2,
+.about-hero p,
+.about-hero ul,
+.about-hero li {
+  color: #000;
+}
+.about-hero h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+.about-hero h2 {
+  font-size: 1.6rem;
+  margin-top: 30px;
+  font-weight: 400;
+}
+
+.about-hero p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+.about-hero li {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+/* ===== CONTACT PAGE ===== */
+
+.contact-hero {
+  position: relative;
+  height: 100vh;
+  background-image: url("images/pic4.jpg"); /* عکس دلخواه */
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 80px;
+  text-align: left;
+}
+
+.contact-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+}
+
+.contact-content {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  color: #fff;
+}
+
+.contact-content h1 {
+  font-size: 2.8rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.contact-content p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  margin-bottom: 30px;
+}
+
+/* فرم */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form label {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ffffff;
+  background: rgba(255,255,255,0.12);
+}
+
+.contact-form button {
+  margin-top: 10px;
+  padding: 14px 22px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 6px;
+  border: 1px solid #fff;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+.two-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+..contact-email {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 18px;
+}
+
+.contact-email a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.contact-email a:hover {
+  opacity: 1;
+}
+/* ===== PROJECTS PAGE ===== */
+
+.projects-hero {
+  min-height: 100vh;
+  background: #000;          /* مشکی مینیمال مثل بقیه سایت */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 80px;
+}
+
+.projects-content {
+  max-width: 900px;
+}
+
+.projects-content h1 {
+  font-size: 2.6rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.projects-content p {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 18px 20px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+}
+
+.project-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 10px;
+}
+
+.project-tags {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.7;
+}
+
+/* موبایل */
+@media (max-width: 800px) {
+  .projects-hero {
+    padding: 60px 20px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+/* ===== Mobile tweaks for HOME (max-width: 700px) ===== */
+@media (max-width: 700px) {
+
+  .hero-contrast {
+    padding: 80px 16px 40px;  /* از دو طرف جمع‌تر + کمی جا برای منو بالا */
+    text-align: center;
+    flex-direction: column;
+    height: auto;            /* به‌جای قد 100vh، خودش بر اساس محتوا کش میاد */
+    min-height: 100vh;       /* حداقل اندازه کل صفحه موبایل */
+    background-position: center top;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .big-title {
+    font-size: 1.9rem;
+    letter-spacing: 0.08em;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .sub-text {
+    font-size: 0.9rem;
+  }
+
+  .hero-profile {
+    position: static;   /* دیگه مطلق نباشه کنار صفحه */
+    transform: none;
+    margin: 24px auto 0;
+  }
+
+  .hero-profile img {
+    width: 210px;
+    max-width: 70%;
+  }
+
+  .side-nav {
+    top: 12px;
+    right: 0;
+    left: 0;
+    transform: none;
+    justify-content: center;
+    gap: 8px;
+  }
+}
+
+/* Mobile Responsive Fix */
+@media (max-width: 768px) {
+
+    .hero-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .hero-text {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .hero-image {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
